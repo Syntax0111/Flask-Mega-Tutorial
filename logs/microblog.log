@@ -1,4 +1,4 @@
-2019-10-16 19:24:03,554 ERROR: Exception on /edit_profile [POST] [in /home/jnavarro6/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py:1891]
+2019-10-31 10:18:22,853 ERROR: Exception on /reset_password/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyZXNldF9wYXNzd29yZCI6MiwiZXhwIjoxNTcyNTQyODk1LjIxNzc1OTF9.g_E-HDs6DrOozC1WhIbBT_MiASaluRR0Kg8UCZDq4V0 [GET] [in /home/jnavarro6/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/home/jnavarro6/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,24 +12,31 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/jnavarro6/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/jnavarro6/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/jnavarro6/PycharmProjects/microblog/app/routes.py", line 85, in edit_profile
-    if form.validate_on_submit():
-  File "/home/jnavarro6/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask_wtf/form.py", line 101, in validate_on_submit
-    return self.is_submitted() and self.validate()
-  File "/home/jnavarro6/PycharmProjects/microblog/venv/lib/python3.6/site-packages/wtforms/form.py", line 310, in validate
-    return super(Form, self).validate(extra)
-  File "/home/jnavarro6/PycharmProjects/microblog/venv/lib/python3.6/site-packages/wtforms/form.py", line 152, in validate
-    if not field.validate(self, extra):
-  File "/home/jnavarro6/PycharmProjects/microblog/venv/lib/python3.6/site-packages/wtforms/fields/core.py", line 206, in validate
-    stop_validation = self._run_validation_chain(form, chain)
-  File "/home/jnavarro6/PycharmProjects/microblog/venv/lib/python3.6/site-packages/wtforms/fields/core.py", line 226, in _run_validation_chain
-    validator(form, self)
-  File "/home/jnavarro6/PycharmProjects/microblog/app/forms.py", line 45, in validate_username
-    if username.data != self.original_name:
-AttributeError: 'EditProfileForm' object has no attribute 'original_name'
-2019-10-16 19:24:16,184 ERROR: Exception on /edit_profile [POST] [in /home/jnavarro6/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py:1891]
+  File "/home/jnavarro6/PycharmProjects/microblog/app/routes.py", line 181, in reset_password
+    return render_template('reset_password.html', form=form)
+  File "/home/jnavarro6/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/templating.py", line 140, in render_template
+    ctx.app,
+  File "/home/jnavarro6/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/home/jnavarro6/PycharmProjects/microblog/venv/lib/python3.6/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/home/jnavarro6/PycharmProjects/microblog/venv/lib/python3.6/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/jnavarro6/PycharmProjects/microblog/venv/lib/python3.6/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/jnavarro6/PycharmProjects/microblog/venv/lib/python3.6/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/home/jnavarro6/PycharmProjects/microblog/app/templates/reset_password.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/home/jnavarro6/PycharmProjects/microblog/app/templates/base.html", line 31, in top-level template code
+    {% block content %}{% endblock %}
+  File "/home/jnavarro6/PycharmProjects/microblog/app/templates/reset_password.html", line 8, in block "content"
+    {{ form.password.label }}<br>
+  File "/home/jnavarro6/PycharmProjects/microblog/venv/lib/python3.6/site-packages/jinja2/environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'app.forms.ResetPasswordRequestForm object' has no attribute 'password'
+2019-10-31 10:23:52,630 INFO: Microblog startup [in /home/jnavarro6/PycharmProjects/microblog/app/__init__.py:50]
+2019-10-31 10:24:13,086 ERROR: Exception on /reset_password/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyZXNldF9wYXNzd29yZCI6MiwiZXhwIjoxNTcyNTQzMjQxLjQ1ODIyOTN9.Bf_cxgd6MCXWNJDI9ewu03upRc0FKhG1UnYHCuvpD2w [GET] [in /home/jnavarro6/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/home/jnavarro6/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -43,21 +50,28 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/jnavarro6/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/jnavarro6/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/jnavarro6/PycharmProjects/microblog/app/routes.py", line 85, in edit_profile
-    if form.validate_on_submit():
-  File "/home/jnavarro6/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask_wtf/form.py", line 101, in validate_on_submit
-    return self.is_submitted() and self.validate()
-  File "/home/jnavarro6/PycharmProjects/microblog/venv/lib/python3.6/site-packages/wtforms/form.py", line 310, in validate
-    return super(Form, self).validate(extra)
-  File "/home/jnavarro6/PycharmProjects/microblog/venv/lib/python3.6/site-packages/wtforms/form.py", line 152, in validate
-    if not field.validate(self, extra):
-  File "/home/jnavarro6/PycharmProjects/microblog/venv/lib/python3.6/site-packages/wtforms/fields/core.py", line 206, in validate
-    stop_validation = self._run_validation_chain(form, chain)
-  File "/home/jnavarro6/PycharmProjects/microblog/venv/lib/python3.6/site-packages/wtforms/fields/core.py", line 226, in _run_validation_chain
-    validator(form, self)
-  File "/home/jnavarro6/PycharmProjects/microblog/app/forms.py", line 45, in validate_username
-    if username.data != self.original_name:
-AttributeError: 'EditProfileForm' object has no attribute 'original_name'
-2019-10-16 19:28:11,527 INFO: Microblog startup [in /home/jnavarro6/PycharmProjects/microblog/app/__init__.py:48]
+  File "/home/jnavarro6/PycharmProjects/microblog/app/routes.py", line 181, in reset_password
+    return render_template('reset_password.html', form=form)
+  File "/home/jnavarro6/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/templating.py", line 140, in render_template
+    ctx.app,
+  File "/home/jnavarro6/PycharmProjects/microblog/venv/lib/python3.6/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/home/jnavarro6/PycharmProjects/microblog/venv/lib/python3.6/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/home/jnavarro6/PycharmProjects/microblog/venv/lib/python3.6/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/jnavarro6/PycharmProjects/microblog/venv/lib/python3.6/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/jnavarro6/PycharmProjects/microblog/venv/lib/python3.6/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/home/jnavarro6/PycharmProjects/microblog/app/templates/reset_password.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/home/jnavarro6/PycharmProjects/microblog/app/templates/base.html", line 31, in top-level template code
+    {% block content %}{% endblock %}
+  File "/home/jnavarro6/PycharmProjects/microblog/app/templates/reset_password.html", line 8, in block "content"
+    {{ form.password.label }}<br>
+  File "/home/jnavarro6/PycharmProjects/microblog/venv/lib/python3.6/site-packages/jinja2/environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'app.forms.ResetPasswordRequestForm object' has no attribute 'password'
+2019-10-31 10:30:41,079 INFO: Microblog startup [in /home/jnavarro6/PycharmProjects/microblog/app/__init__.py:50]
+2019-10-31 10:58:05,100 INFO: Microblog startup [in /home/jnavarro6/PycharmProjects/microblog/app/__init__.py:50]
